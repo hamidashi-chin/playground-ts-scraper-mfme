@@ -1,0 +1,12 @@
+services:
+  app:
+    build: .
+    container_name: playground-ts-scraper-mfme
+    ports:
+      - "3001:3000"  # コンテナの3000番ポートをホストに公開
+    volumes:
+      - ./src:/usr/src/app  # ローカルのファイルとコンテナ内のファイルを同期
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
